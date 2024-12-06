@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbousaad <bbousaad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bech <bech@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 18:12:42 by bbousaad          #+#    #+#             */
-/*   Updated: 2024/12/03 17:44:50 by bbousaad         ###   ########.fr       */
+/*   Updated: 2024/12/06 16:45:42 by bech             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # define RIGHT    65363
 # define PI		  3.1415926535
 #define FOV 60
+# define TURN 0.05
 #define ang 360
 #define PI 3.1415926535
 #define PLAYER_MOVE_SPEED 0.1
@@ -74,6 +75,9 @@ typedef struct s_data
 	int		playerAngle;
 	int		p_x;
 	int		p_y;
+	double	dir_x;
+	double	dir_y;
+	double	dir_a;
 	int		height;
 	int		width;
 	char	**map;
@@ -98,5 +102,6 @@ void	draw_big_pixel(void *mlx_ptr, void *win_ptr, int x, int y, int size, int co
 void    init_spawn(t_data *dta);
 void	map_size(t_data *dta);
 int		key_press(int keycode, t_data *dta);
+void	ft_rotate(t_data *dta, double c);
 void 	draw_line(void *mlx_ptr, void *win_ptr, int x1, int y1, int x2, int y2, int color);
 #endif
